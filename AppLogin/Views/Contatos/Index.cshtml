@@ -1,0 +1,82 @@
+﻿@model List<Contato>
+@{
+	ViewData["Title"] = "Listagem de Contatos";
+}
+
+<partial name="_alertConfirm" />
+
+<h1>Listagem de Contatos</h1>
+<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+	<a class="btn btn-primary" asp-controller="Contatos" asp-action="Criar" role="button">Adicionar novo contato</a>
+</div>
+<table class="table" id="table-contatos">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Nome</th>
+			<th scope="col">Email</th>
+			<th scope="col">Celular</th>
+			<th scope="col">Celular</th>
+
+
+		</tr>
+	</thead>
+	<tbody>
+		@if (Model != null && Model.Any())
+		{
+			foreach (var c in Model)
+			{
+				<tr>
+				<th scope="row">@c.Id</th>
+				<td>@c.Nome</td>
+				<td>@c.Email</td>
+				<td>@c.Celular</td>
+				<td>
+					<div class="btn-group" role="button">
+						<a role="button" class="btn btn-primary" asp-controller="Contatos" asp-action="Editar" asp-route-id="@c.Id">Editar</a>
+							<a role="button" class="btn btn-danger" asp-controller="Contatos" asp-action="ApagarConfirmacao" asp-route-id="@c.Id">Apagar</a>
+					</div>
+				</td>
+			</tr>
+			}
+			
+		}
+	</tbody>
+</table>
+
+@section Scripts {
+	<script>
+		$(document).ready(function () {
+			$('#table-contatos').DataTable({
+				"ordering": true,
+				"paging": true,
+				"searching": true,
+				"oLanguage": {
+					"sEmptyTable": "Nenhum registro encontrado na tabela",
+					"sInfo": "Mostrar _START_ até _END_ de _TOTAL_ registros",
+					"sInfoEmpty": "Mostrar 0 até 0 de 0 Registros",
+					"sInfoFiltered": "(Filtrar de _MAX_ total registros)",
+					"sInfoPostFix": "",
+					"sInfoThousands": ".",
+					"sLengthMenu": "Mostrar _MENU_ registros por pagina",
+					"sLoadingRecords": "Carregando...",
+					"sProcessing": "Processando...",
+					"sZeroRecords": "Nenhum registro encontrado",
+					"sSearch": "Pesquisar",
+					"oPaginate": {
+						"sNext": "Proximo",
+						"sPrevious": "Anterior",
+						"sFirst": "Primeiro",
+						"sLast": "Ultimo"
+					},
+					"oAria": {
+						"sSortAscending": ": Ordenar colunas de forma ascendente",
+						"sSortDescending": ": Ordenar colunas de forma descendente"
+					}
+				}
+			});
+		});
+	</script>
+}
+
+

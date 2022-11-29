@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Cadastrar Contato";
+}
+
+<partial name="_alertConfirm" />
+
+<div class="text-center">
+    <h1 class="display-4">Cadastrar Contato</h1>
+</div>
+
+<form method="post">
+    <partial name="_form" />
+
+    <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary ">
+            Cadastrar Contato
+        </button>
+        <a class="btn btn-secondary" asp-controller="Contatos" asp-action="Index" role="button">Voltar</a>
+    </div>
+</form>

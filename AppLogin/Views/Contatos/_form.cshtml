@@ -1,0 +1,20 @@
+﻿@model Contato
+
+<div class="mb-3">
+    <label for="nome">Nome</label>
+    <input type="text" asp-for="Nome" class="form-control" placeholder="Digite seu nome">
+    @Html.ValidationMessageFor(x =>x.Nome)</
+</div>
+
+<div class="mb-3">
+    <label for="email">Email </label>
+    <input type="text" asp-for="Email" class="form-control" placeholder="Digite seu Email" />
+    @Html.ValidationMessageFor(x =>x.Email)</
+</div>
+
+<div class="mb-3">
+    <label for="celular">Celular</label>
+    <input type="text" asp-for="Celular" class="form-control" placeholder="Digite seu celular">
+    @Html.ValidationMessageFor(x =>x.Celular)</
+</div>
+

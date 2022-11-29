@@ -1,0 +1,22 @@
+﻿@model Contato
+@{
+    ViewData["Title"] = "Editar Contato";
+}
+
+<partial name="_alertConfirm" />
+
+<div class="text-center">
+    <h1 class="display-4">Editar Contato '@Model.Nome'</h1>
+</div>
+
+<form method="post">
+    <partial name="_form" />
+    <input type="hidden" asp-for="Id" />
+
+    <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary ">
+            Editar Contato
+        </button>
+        <a class="btn btn-secondary" asp-controller="Contatos" asp-action="Index" role="button">Voltar</a>
+    </div>
+</form>
