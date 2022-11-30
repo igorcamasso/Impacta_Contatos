@@ -1,0 +1,22 @@
+﻿@model Usuario
+@{
+    ViewData["Title"] = "Editar Usuário";
+}
+
+<partial name="_alertConfirm" />
+
+<div class="text-center">
+    <h1 class="display-4">Editar Usuário '@Model.UsuarioNome'</h1>
+</div>
+
+<form method="post">
+    <partial name="_form" />
+    <input type="hidden" asp-for="UsuarioId" />
+
+    <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary ">
+            Editar Usuário
+        </button>
+        <a class="btn btn-secondary" asp-controller="Usuarios" asp-action="Index" role="button">Voltar</a>
+    </div>
+</form>

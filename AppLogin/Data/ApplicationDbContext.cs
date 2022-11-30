@@ -14,5 +14,7 @@ namespace AppLogin.Data
         public DbSet<Evento> Eventos { get; set; }
 
         public DbSet<Contato> Contatos { get; set; }
+
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 }

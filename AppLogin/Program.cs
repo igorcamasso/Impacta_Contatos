@@ -19,10 +19,12 @@ builder.Services.AddControllersWithViews();
 
 //DI
 builder.Services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
+builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
 //Automapper
 var configuration = new MapperConfiguration(cfg => {
     cfg.CreateMap<Contato,Contato>();
+    cfg.CreateMap<Usuario,Usuario>();
 });
 builder.Services.AddScoped<IMapper>(a => new Mapper(configuration));
 

@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Listagem de Usuarios";
+}
+@model List<Usuario>
+
+<div class="text-center">
+
+    <partial name="_alertConfirm" />
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" asp-controller="Usuarios" asp-action="Criar" role="button">Adicionar novo Usuario</a>
+    </div>
+
+    <br />
+
+
+
+
+    <table id="table-usuario" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Login</th>
+                <th scope="col">Email</th>
+                <th scope="col">Perfil</th>
+                <th scope="col">Data de Cadastro</th>
+                <th scope="col">Data de Atualização</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (Usuario usuario in Model)
+                {
+                    <tr>
+                        <td scope="row">@usuario.UsuarioId</td>
+                        <td>@usuario.UsuarioNome</td>
+                        <td>@usuario.Login</td>
+                        <td>@usuario.Email</td>
+                        <td>@usuario.Perfil</td>
+                        <td>@usuario.DataCadastro</td>
+                        <td>@usuario.DataAtualização</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" asp-action="Editar" asp-controller="Usuarios" asp-route-id="@usuario.UsuarioId" class="btn btn-primary">Editar</a>
+                                <a role="button" asp-action="ApagarConfirmacao" asp-controller="Usuarios" asp-route-id="@usuario.UsuarioId" class="btn btn-danger">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+</div>
